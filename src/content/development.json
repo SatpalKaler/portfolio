@@ -1,6 +1,27 @@
 {
   "projects": [
     {
+      "title": "Beck Depression Inventory ",
+      "description": "Take the Beck Depression Inventory (BDI) assessment online. A free, confidential 21-item questionnaire to evaluate depression symptoms and their severity.",
+      "date": "April 2024",
+      "image": "/webdev/og-image.png",
+      "link": "https://beckdepressioninventory.vercel.app",
+      "technologies": [
+        {
+          "name": "Javascript",
+          "logo": "/webdev/javascript.webp"
+        },
+        {
+          "name": "Tailwind",
+          "logo": "/webdev/tailwind.webp"
+        },
+        {
+          "name": "React",
+          "logo": "/webdev/react.webp"
+        }
+      ]
+    },
+    {
       "title": "Portfolio Website",
       "description": "A portfolio website for myself, which you're browsing through right now! Using React with Shadcn/UI and TailwindCSS - with AI-assist",
       "date": "2024",
