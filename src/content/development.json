@@ -4,7 +4,7 @@
       "title": "Beck Depression Inventory ",
       "description": "Take the Beck Depression Inventory (BDI) assessment online. A free, confidential 21-item questionnaire to evaluate depression symptoms and their severity.",
       "date": "April 2024",
-      "image": "/webdev/og-image.png",
+      "image": "/webdev/BDI.webp",
       "link": "https://beckdepressioninventory.vercel.app",
       "technologies": [
         {
@@ -25,7 +25,7 @@
       "title": "Portfolio Website",
       "description": "A portfolio website for myself, which you're browsing through right now! Using React with Shadcn/UI and TailwindCSS - with AI-assist",
       "date": "2024",
-      "image": "webdev/portfolio.webp",
+      "image": "webdev/SK.webp",
       "link": "https://satpalkaler.com",
       "technologies": [
         {
@@ -50,7 +50,7 @@
       "title": "Retirement Calculator",
       "description": "A handy tool to calculate your inflation-adjusted retirement savings with ease. Using Vuetify and Vue.js with AI-assist",
       "date": "2023",
-      "image": "webdev/retirement.webp",
+      "image": "webdev/RETIREMENT2.webp",
       "link": "https://retirementcalc.vercel.app/",
       "technologies": [
         {
@@ -71,7 +71,7 @@
       "title": "Kindle Highlights to Wallpapers",
       "description": "A tool for creating beautiful wallpapers from your Kindle highlights. Using React with AI-assist",
       "date": "2024",
-      "image": "webdev/kindle.webp",
+      "image": "webdev/KINDLE2.webp",
       "link": "https://kindle-quotes.vercel.app/",
       "technologies": [
         {
