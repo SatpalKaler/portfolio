@@ -2,11 +2,15 @@ import { Link, useLocation } from 'react-router-dom';
 import { Mail, FileText, LinkedinIcon, Menu, X, Instagram } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import React, { useState, useEffect } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 
 const Navigation = () => {
   const location = useLocation();
   const isMobile = useIsMobile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
+  const [state, handleSubmit] = useForm("xeogjykq");
+
   const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
@@ -15,9 +19,7 @@ const Navigation = () => {
 
   const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    navigator.clipboard.writeText('satpalkaler.sk@gmail.com');
-    setShowNotification(true);
-    setTimeout(() => setShowNotification(false), 2000);
+    setIsContactOpen(true);
   };
 
   const links = [
@@ -94,13 +96,6 @@ const Navigation = () => {
               )}
             </div>
 
-            {/* Name - only show if not on home page */}
-            {location.pathname !== '/' && (
-              <h1 className="text-5xl font-bold mb-4" style={{ color: `hsl(var(--navbar-foreground))` }}>
-                Satpal Kaler
-              </h1>
-            )}
-
             {/* Navigation links */}
             <div className={`${isMobile ? 'flex flex-col items-center space-y-4' : 'flex items-center justify-center space-x-8'} ${
               isMobile && !isMenuOpen ? 'hidden' : ''
@@ -124,14 +119,75 @@ const Navigation = () => {
           </div>
         </div>
       </nav>
-      
-      <div
-        className={`fixed top-4 right-4 bg-teal-600 text-white px-4 py-2 rounded-md transition-all duration-300 z-50 ${
-          showNotification ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
-        }`}
-      >
-        Email address copied to clipboard
-      </div>
+    
+      {/* Contact Form Modal */}
+      {isContactOpen && (
+        <div className="fixed inset-0 backdrop-blur-sm bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg max-w-md w-full mx-4">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-xl font-bold" style={{ color: `hsl(var(--navbar-foreground))` }}>
+                Contact Me
+              </h2>
+              <button
+                onClick={() => setIsContactOpen(false)}
+                className="p-2 rounded-full hover:bg-black/10 transition-colors"
+              >
+                <X className="w-5 h-5" style={{ color: `hsl(var(--navbar-icon))` }} />
+              </button>
+            </div>
+            
+            {state.succeeded ? (
+              <div className="text-center py-8">
+                <p className="font-medium">Thanks for your message! I'll get back to you soon.</p>
+                <button
+                  onClick={() => setIsContactOpen(false)}
+                  className="mt-4 px-4 py-2 rounded-md bg-teal-600 text-white hover:bg-teal-700 transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                    Email Address
+                  </label>
+                  <input
+                    id="email"
+                    type="email" 
+                    name="email"
+                    className="mt-1 block w-full rounded-md border border-gray-200 p-2 hover:border-gray-300 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600"
+                    required
+                  />
+                  <ValidationError prefix="Email" field="email" errors={state.errors} />
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    className="mt-1 block w-full rounded-md border border-gray-200 p-2 hover:border-gray-300 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600"
+                    required
+                  />
+                  <ValidationError prefix="Message" field="message" errors={state.errors} />
+                </div>
+                
+                <button
+                  type="submit"
+                  disabled={state.submitting}
+                  className="w-full py-2 px-4 rounded-md bg-teal-600 text-white hover:bg-teal-700 transition-colors disabled:opacity-50"
+                >
+                  Send Message
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
