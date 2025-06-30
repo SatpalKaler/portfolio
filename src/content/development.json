@@ -71,8 +71,8 @@
       "title": "Kindle Highlights to Wallpapers",
       "description": "A tool for creating beautiful wallpapers from your Kindle highlights. Using React with AI-assist",
       "date": "2024",
-      "image": "webdev/KINDLE2.webp",
-      "link": "https://kindle-quotes.vercel.app/",
+      "image": "webdev/KINDLE3.webp",
+      "link": "https://kindlehighlights.vercel.app/",
       "technologies": [
         {
           "name": "React",
