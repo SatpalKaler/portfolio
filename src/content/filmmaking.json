@@ -1,6 +1,15 @@
 {
   "films": [
     {
+      "title": "Building Trust",
+      "position": "Producer",
+      "description": "A mini documentary on Property Rental scams in partnership with PropertyGuru",
+      "date": "December 2025",
+      "link": "",
+      "watchLink": "https://www.youtube.com/watch?v=R4fyBPzWG4w",
+      "image": "filmmaking/pg.webp"
+    },
+    {
       "title": "Greed of Green",
       "position": "Video Editor",
       "description": "Uncovering the hidden human and environmental toll of mining the minerals that power our clean energy future.",
